@@ -23,10 +23,10 @@ def createPOCreateReviewBranch():
 
     _uuid = uuid.uuid4()
 
-    print(_uuid.hex)
+    print( _uuid.hex)
     
     # Criamos um arquivo dumb apenas para commitar e hitar o trigger
-    f= open(_uuid.hex,"w+")
+    f= open('_auxFile' + _uuid.hex,"w+")
     
     # Criamos a branch de teste ex: PO--feature/token-toro-aprova-ai-big
     run("checkout", "-b", br)
