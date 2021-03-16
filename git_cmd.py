@@ -27,7 +27,7 @@ def createPOCreateReviewBranch():
     
     # Adiciona o arquivo
     run("add", ".")
-    
+
     # Pergunta se quer realmente subir para a pipeline
     choice = input("\nEnviar a branch para pipeline? (S) (N)")
     choice = choice.lower()
@@ -40,17 +40,19 @@ def createPOCreateReviewBranch():
 
     elif choice == "n":
         print("\nObrigado!\n")
+         
 
     else:
         print("\nComando inválido\n")
+         # Remove o arquivo dumb
 
-    # Remove o arquivo dumb
-    run("rm", "_auxfile.txt")
-
+   
     run("push", "-d", "origin", br)
 
 def main():
     createPOCreateReviewBranch()
+    # Remove o arquivo dumb
+    os.remove("_auxfile.txt")
 
 if __name__ == '__main__':
     main()
