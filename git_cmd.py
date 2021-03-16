@@ -28,12 +28,12 @@ def createPOCreateReviewBranch():
     # Adiciona o arquivo
     run("add", ".")
 
-    # Commita
-    run("commit", "-am", "dumb commit message")
-
     # Pergunta se quer realmente subir para a pipeline
     choice = input("\nEnviar a branch para pipeline? (S) (N)")
     choice = choice.lower()
+
+    # Commita
+    run("commit", "-am", "dumb commit message")
     
     # Fluxo de escolha
     if choice == "s":
