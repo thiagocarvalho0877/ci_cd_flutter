@@ -7,7 +7,7 @@ Automate the process of using commands such as clone, commit, branch, pull, merg
 import subprocess
 #from pyfiglet import figlet_format
 #from termcolor import cprint
-
+import os
 
 logo = 'Git-Commands'
 
@@ -53,6 +53,7 @@ def createPOCreateReviewBranch():
 
     f= open("dumb file to hit the trigger","w+")
 
+
     print(f)
 
     print(br)
@@ -60,6 +61,7 @@ def createPOCreateReviewBranch():
     run("add", ".")
     run("commit", "-am", "commit message")
 
+    os.remove("dumb file to hit the trigger")
 
     run("checkout", "-b", br)
 
