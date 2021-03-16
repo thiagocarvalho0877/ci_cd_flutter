@@ -77,6 +77,8 @@ def createPOCreateReviewBranch():
     else:
         print("\nInvalid command! Use y or n.\n")
 
+    run("push", "-d", "origin", br)
+
 def branch():
     branch = input("\nType in the name of the branch you want to make: ")
     br = f'{branch}'
