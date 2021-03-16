@@ -32,10 +32,10 @@ def createPOCreateReviewBranch():
 
     os.remove("dumb file to hit the trigger")
 
-    if choice == "S":
+    if choice == "s":
         run("push", "--set-upstream", "origin", br)
 
-    elif choice == "N":
+    elif choice == "n":
         print("\nObrigado!\n")
 
     else:
