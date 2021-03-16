@@ -54,16 +54,18 @@ def createPOCreateReviewBranch():
     f= open("dumb file to hit the trigger","w+")
 
 
+   
+
+    os.remove("dumb file to hit the trigger")
+
+    run("checkout", "-b", br)
+
     print(f)
 
     print(br)
 
     run("add", ".")
     run("commit", "-am", "commit message")
-
-    os.remove("dumb file to hit the trigger")
-
-    run("checkout", "-b", br)
 
     choice = input("\nDo you want to push the branch right now to GitHub? (y/n): ")
     choice = choice.lower()
