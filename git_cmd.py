@@ -31,9 +31,6 @@ def createPOCreateReviewBranch():
     # Commita
     run("commit", "-am", "dumb commit message")
 
-    # Remove o arquivo dumb
-    os.remove("dumb file to hit the trigger")
-
     # Pergunta se quer realmente subir para a pipeline
     choice = input("\nEnviar a branch para pipeline? (S) (N)")
     choice = choice.lower()
@@ -47,6 +44,9 @@ def createPOCreateReviewBranch():
 
     else:
         print("\nComando inválido\n")
+
+    # Remove o arquivo dumb
+    os.remove("dumb file to hit the trigger")
 
     run("push", "-d", "origin", br)
 
