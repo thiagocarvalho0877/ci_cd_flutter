@@ -17,7 +17,7 @@ def run(*args):
 # Cria a branch com o Trigger para gerarmos a versão de teste da PO
 def createPOCreateReviewBranch():
     branch = input("\nDigite o nome da branch que será criada para gerarmos o build :) : ")
-    br = 'PM--' + f'{branch}' 
+    br = 'PO--' + f'{branch}' 
     
     # Criamos um arquivo dumb apenas para commitar e hitar o trigger
     f= open("dumb file to hit the trigger","w+")
