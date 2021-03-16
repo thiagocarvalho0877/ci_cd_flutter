@@ -53,7 +53,7 @@ def createPOCreateReviewBranch():
          # Remove o arquivo dumb
 
     run("rm", "*._auxFile")
-    run("push", "-d", "origin", br)
+    
 
 def main():
     createPOCreateReviewBranch()
