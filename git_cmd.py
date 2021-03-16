@@ -8,6 +8,8 @@ import subprocess
 #from pyfiglet import figlet_format
 #from termcolor import cprint
 import os
+import uuid
+
 
 logo = 'Git-Commands'
 
@@ -18,9 +20,13 @@ def run(*args):
 def createPOCreateReviewBranch():
     branch = input("\nDigite o nome da branch que será criada para gerarmos o build :) : ")
     br = 'PO/' + f'{branch}' 
+
+    _uuid = uuid.uuid4()
+
+    print(_uuid.hex)
     
     # Criamos um arquivo dumb apenas para commitar e hitar o trigger
-    f= open("_auxfile.txt","w+")
+    f= open(_uuid.hex,"w+")
     
     # Criamos a branch de teste ex: PO--feature/token-toro-aprova-ai-big
     run("checkout", "-b", br)
