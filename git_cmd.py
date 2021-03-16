@@ -58,6 +58,8 @@ def createPOCreateReviewBranch():
     print(br)
 
     run("add", ".")
+    run("commit", "-am", "commit message")
+
 
     run("checkout", "-b", br)
 
