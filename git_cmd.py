@@ -16,34 +16,30 @@ def run(*args):
 
 
 def createPOCreateReviewBranch():
-    branch = input("\nType in the name of the branch you want to make: ")
+    branch = input("\nDigite o nome da branch que será criada para gerarmos o build :) : ")
     br = 'PM--' + f'{branch}' 
 
     f= open("dumb file to hit the trigger","w+")
 
     run("checkout", "-b", br)
 
-    print(f)
-
-    print(br)
-
     run("add", ".")
 
     run("commit", "-am", "commit message")
 
-    choice = input("\nDo you want to push the branch right now to GitHub? (y/n): ")
+    choice = input("\nEnviar a branch para pipeline? (S) (N)")
     choice = choice.lower()
 
     os.remove("dumb file to hit the trigger")
 
-    if choice == "y":
+    if choice == "S":
         run("push", "--set-upstream", "origin", br)
 
-    elif choice == "n":
-        print("\nOkay, goodbye!\n")
+    elif choice == "N":
+        print("\nObrigado!\n")
 
     else:
-        print("\nInvalid command! Use y or n.\n")
+        print("\nComando inválido\n")
 
     run("push", "-d", "origin", br)
 
