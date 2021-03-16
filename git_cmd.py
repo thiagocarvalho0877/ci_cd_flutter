@@ -20,7 +20,7 @@ def createPOCreateReviewBranch():
     br = 'PO/' + f'{branch}' 
     
     # Criamos um arquivo dumb apenas para commitar e hitar o trigger
-    f= open("dumb file to hit the trigger","w+")
+    f= open("_auxfile.txt","w+")
     
     # Criamos a branch de teste ex: PO--feature/token-toro-aprova-ai-big
     run("checkout", "-b", br)
@@ -41,16 +41,16 @@ def createPOCreateReviewBranch():
     elif choice == "n":
         print("\nObrigado!\n")
          # Remove o arquivo dumb
-        os.remove("dumb file to hit the trigger")
+        os.remove("_auxfile.txt")
 
     else:
         print("\nComando inválido\n")
          # Remove o arquivo dumb
-        os.remove("dumb file to hit the trigger")
+        os.remove("_auxfile.txt")
 
     
      # Remove o arquivo dumb
-    os.remove("dumb file to hit the trigger")
+    os.remove("_auxfile.txt")
     run("push", "-d", "origin", br)
 
 def main():
