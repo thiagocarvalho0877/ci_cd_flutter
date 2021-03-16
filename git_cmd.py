@@ -35,9 +35,6 @@ def createPOCreateReviewBranch():
     # Fluxo de escolha
     if choice == "s":
          # Commita
-            # Remove o arquivo dumb
-        run("rm", "_auxfile.txt")
-        
         run("commit", "-am", "dumb commit message")
         run("push", "--set-upstream", "origin", br)
 
@@ -47,7 +44,8 @@ def createPOCreateReviewBranch():
     else:
         print("\nComando inválido\n")
 
-
+    # Remove o arquivo dumb
+    run("rm", "_auxfile.txt")
 
     run("push", "-d", "origin", br)
 
