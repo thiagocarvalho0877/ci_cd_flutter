@@ -14,24 +14,31 @@ logo = 'Git-Commands'
 def run(*args):
     return subprocess.check_call(['git'] + list(args))
 
-
+# Cria a branch com o Trigger para gerarmos a versão de teste da PO
 def createPOCreateReviewBranch():
     branch = input("\nDigite o nome da branch que será criada para gerarmos o build :) : ")
-    br = 'PM--' + f'{branch}' 
-
+    br = 'P0--' + f'{branch}' 
+    
+    # Criamos um arquivo dumb apenas para commitar e hitar o trigger
     f= open("dumb file to hit the trigger","w+")
-
+    
+    # Criamos a branch de teste ex: PO--feature/token-toro-aprova-ai-big
     run("checkout", "-b", br)
-
+    
+    # Adiciona o arquivo
     run("add", ".")
 
-    run("commit", "-am", "commit message")
+    # Commita
+    run("commit", "-am", "dumb commit message")
 
-    choice = input("\nEnviar a branch para pipeline? (S) (N)")
-    choice = choice.lower()
-
+    # Remove o arquivo dumb
     os.remove("dumb file to hit the trigger")
 
+    # Pergunta se quer realmente subir para a pipeline
+    choice = input("\nEnviar a branch para pipeline? (S) (N)")
+    choice = choice.lower()
+    
+    # Fluxo de escolha
     if choice == "s":
         run("push", "--set-upstream", "origin", br)
 
@@ -45,49 +52,6 @@ def createPOCreateReviewBranch():
 
 def main():
     createPOCreateReviewBranch()
-  #  cprint(figlet_format(logo, font='slant'), 'green')
-    # print(info + "\n")
-
-    # choices = 'clone, commit, branch, createpocreatereviewbranch, pull, fetch, merge, reset, blame and stash'
-    # print("Commands to use: " + choices)
-
-    # choose_command = input("Type in the command you want to use: ")
-    # choose_command = choose_command.lower()
-
-    # if choose_command == "clone":
-    #     clone()
-
-    # elif choose_command == "commit":
-    #     commit()
-
-    # elif choose_command == "branch":
-    #     branch()
-    
-    # elif choose_command == "createpocreatereviewbranch":
-    #     createPOCreateReviewBranch()
-
-    # elif choose_command == "pull":
-    #     pull()
-
-    # elif choose_command == "fetch":
-    #     fetch()
-
-    # elif choose_command == "merge":
-    #     merge()
-
-    # elif choose_command == "reset":
-    #     reset()
-
-    # elif choose_command == "blame":
-    #     blame()
-
-    # elif choose_command == "stash":
-    #     stash()
-
-    # else:
-    #     print("\nNot a valid command!")
-    #     print("\nUse " + choices)
-
 
 if __name__ == '__main__':
     main()
